@@ -9,35 +9,35 @@ class SentenceTest < ActiveSupport::TestCase
 
   should_belong_to :exercise
 
-  should_have_many :answers
+  should_have_one :answer
 
   should_validate_presence_of :text, :exercise_id
 
   should_validate_uniqueness_of :number, :scoped_to => :exercise_id  
 
-  test 'should accepts_nested_attributes_for :answers' do
-    assert_difference('Answer.count', 2) {
-      assert @sentence.update_attribute :answers_attributes, answers_attributes
+  test 'should accepts_nested_attributes_for :answer' do
+    assert_difference('Answer.count', 1) {
+      assert @sentence.update_attribute :answer_attributes, answer_attributes
     }
 
     #should destroy
     assert_difference('Answer.count', -1) {
-      assert @sentence.update_attribute :answers_attributes, [{ :id => first_answer.id, :_destroy => true }]
+      assert @sentence.update_attribute :answer_attributes, { :id => first_answer.id, :_destroy => true }
     }
 
     #should reject if empty
     assert_no_difference('Answer.count') {
-      assert @sentence.update_attribute :answers_attributes, [{ :text => '' }]
+      assert @sentence.update_attribute :answer_attributes, { :text => '' }
     }
   end
 
   private
-  def answers_attributes
-    [{ :text => 'Yes, I am.' }, { :text => 'No, I am not.' }]
+  def answer_attributes
+    { :text => 'Yes, I am.' }
   end
 
   def first_answer
-    @sentence.answers.first
+    @sentence.answer
   end
 end
 

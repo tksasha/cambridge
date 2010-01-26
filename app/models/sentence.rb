@@ -1,12 +1,12 @@
 class Sentence < ActiveRecord::Base
   belongs_to :exercise
 
-  has_many :answers
+  has_one :answer
 
   validates_presence_of :text, :exercise_id, :number
   validates_uniqueness_of :number, :scope => [:exercise_id]
 
-  accepts_nested_attributes_for :answers, :allow_destroy => true, :reject_if => proc { |a| a['text'].to_s.empty? }
+  accepts_nested_attributes_for :answer, :allow_destroy => true, :reject_if => proc { |a| a['text'].to_s.empty? }
 end
 
 __END__

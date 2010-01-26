@@ -29,7 +29,7 @@ class UnitsControllerTest < ActionController::TestCase
     assert @unit.exercises.last.sentences.last.new_record?
 
     # should build new answer 
-    assert @unit.exercises.last.sentences.last.answers.first.new_record?
+    assert @unit.exercises.last.sentences.last.answer.new_record?
   end
 
   test 'post create' do
@@ -60,7 +60,7 @@ class UnitsControllerTest < ActionController::TestCase
     assert @unit.exercises.last.sentences.last.new_record?
 
     # should build new answer 
-    assert @unit.exercises.last.sentences.last.answers.first.new_record?
+    assert @unit.exercises.last.sentences.last.answer.new_record?
   end
 
   test 'put update' do

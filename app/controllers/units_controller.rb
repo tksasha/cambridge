@@ -10,7 +10,7 @@ class UnitsController < ApplicationController
     @unit.exercises.build
     @unit.exercises.map{ |e| e.sentences.build }
     @unit.exercises.each{ |e|
-      e.sentences.map{ |s| s.answers.build }
+      e.sentences.map{ |s| s.build_answer }
     }
   end
 
@@ -42,7 +42,7 @@ class UnitsController < ApplicationController
     @unit.exercises.build
     @unit.exercises.map{ |e| e.sentences.build }
     @unit.exercises.each{ |e|
-      e.sentences.map{ |s| s.answers.build unless s.answers.first }
+      e.sentences.map{ |s| s.build_answer unless s.answer }
     }
   end
 

@@ -20,7 +20,7 @@
             = sentence.text_field :text
             = sentence.check_box :_destroy
             = sentence.label :_destroy
-            - sentence.fields_for :answers do |answer|
+            - sentence.fields_for :answer do |answer|
               %fieldset.answer
                 %legend Answer
                 = answer.text_field :text
