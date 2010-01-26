@@ -4,6 +4,8 @@ class Exercise < ActiveRecord::Base
   has_many :sentences
 
   validates_presence_of :number, :description
+
+  validates_uniqueness_of :number, :scope => :unit_id
   
   accepts_nested_attributes_for :sentences, :allow_destroy => true, :reject_if => proc { |a| a['number'].to_i <=0 || a['text'].to_s.empty? } 
 end

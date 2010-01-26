@@ -12,6 +12,7 @@ class ExerciseTest < ActiveSupport::TestCase
   should_have_many :sentences
 
   should_validate_presence_of :number, :description
+  should_validate_uniqueness_of :number, :scoped_to => :unit_id
 
   test 'should accepts_nested_attributes_for :sentences' do
     assert_difference('Sentence.count', 2) {
@@ -31,10 +32,14 @@ class ExerciseTest < ActiveSupport::TestCase
 
   private
   def sentences_attributes
-    [{ :number => 1, :text => 'If I were a rich man' }, { :number => 2, :text => 'I would visit London' }]
+    [{ :number => next_sentence_number, :text => 'If I were a rich man' }, { :number => next_sentence_number + 1, :text => 'I would visit London' }]
   end
 
   def first_sentence
     @exercise.sentences.first
+  end
+
+  def next_sentence_number
+    Sentence.all(:order => :number).first.number + 1
   end
 end
