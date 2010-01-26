@@ -2,4 +2,10 @@ class Answer < ActiveRecord::Base
   belongs_to :sentence
 
   validates_presence_of :text
+
+  def check t=''
+    r = Regexp.new text.downcase
+
+    r.match t.downcase
+  end
 end
