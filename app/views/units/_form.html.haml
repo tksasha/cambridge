@@ -1,5 +1,9 @@
 %fieldset.unit
-  %legend Unit
+  %legend 
+    Unit
+    - unless @unit.new_record?
+      = link_to 'quiz', quiz_unit_path(@unit)
+
   - form_for @unit do |unit|
     = unit.error_messages
 

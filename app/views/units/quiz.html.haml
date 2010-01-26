@@ -1,5 +1,8 @@
 %fieldset.unit
-  %legend= h @unit.name
+  %legend
+    = h @unit.name
+    = link_to 'edit', edit_unit_path(@unit)
+
   - @unit.exercises.each do |exercise|
     .exercise
       :textile
