@@ -18,8 +18,8 @@ class AnswerTest < ActiveSupport::TestCase
     assert @answer.check('Good Answer')
     assert @answer.check('Good Response')
 
-    #should not case sensitive
-    assert @answer.check('good response')
+    #should is case sensitive
+    assert !@answer.check('good response')
 
     #false if answer is empty
     assert !@answer.check('')

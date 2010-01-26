@@ -4,8 +4,8 @@ class Answer < ActiveRecord::Base
   validates_presence_of :text
 
   def check t=''
-    r = Regexp.new text.downcase
+    r = Regexp.new text
 
-    r.match t.downcase
+    r.match t
   end
 end
