@@ -27,7 +27,7 @@ a { color: #b37171 }
 #errors, .errors { color: red }
 
 fieldset.unit, fieldset.unit > legend { background-color: white; border: 1px solid black; }
-fieldset.exercise, fieldset.exercise > legend { background-color: #eee; border: 1px solid black; margin: 10px 0 }
+fieldset.exercise, fieldset.exercise > legend, .exercise { background-color: #eee; border: 1px solid black; margin: 10px 0; padding: 0px 5px }
 fieldset.sentence, fieldset.sentence > legend { background-color: #ddd; border: 1px solid black; margin: 5px 0 }
 fieldset.answer, fieldset.answer > legend { background-color: #eef; border: 1px solid #888; margin: 5px 0 }
 
