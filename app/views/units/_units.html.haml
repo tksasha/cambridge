@@ -1,0 +1,10 @@
+- for unit in @units
+  %li{ :value => unit.number }
+    = unit.name
+    .buttons
+      [
+      = link_to 'quiz', quiz_unit_path(unit)
+      = link_to 'edit', edit_unit_url(unit)
+      = link_to 'delete', unit_url(unit), :method => :delete, :confirm => 'Are You Sure?'
+      = link_to 'exercises', unit_exercises_url(unit)
+      ]

@@ -1,0 +1,41 @@
+* { color: black } /*{ color: #5a3a3a } */
+
+input{ color: black }
+input{ font-size: 1em }
+
+label{ color: black }
+textarea{ color: black }
+
+legend{ padding: 2px 10px }
+
+.right { text-align: right }
+
+.good { border: 2px solid green }
+.bad { border: 2px solid red }
+
+legend { font-weight: normal }
+
+a { color: #b37171 }
+
+.right{ text-align: right; }
+
+.sentences-image{ border: 1px solid #d24856 }
+
+.hidden{ display: none }
+.units-button { font-weight: normal; margin-bottom: 10px }
+
+#errors, .errors { color: red }
+
+fieldset.unit, fieldset.unit > legend { background-color: white; border: 1px solid black; }
+fieldset.exercise, fieldset.exercise > legend { background-color: #eee; border: 1px solid black; margin: 10px 0 }
+fieldset.sentence, fieldset.sentence > legend { background-color: #ddd; border: 1px solid black; margin: 5px 0 }
+fieldset.answer, fieldset.answer > legend { background-color: #eef; border: 1px solid #888; margin: 5px 0 }
+
+.buttons { font-weight: normal; margin-bottom: 10px }
+
+[id$="number"]{ width: 25px; text-align: right }
+
+[id$="description"]{ width: 70%; }
+
+[id$="text"]{ width: 80% }
+

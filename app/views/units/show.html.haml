@@ -1,0 +1,12 @@
+%p= @breadcrumb 
+
+%fieldset
+  %legend
+    = @unit.fullname
+    = link_to 'Edit', edit_unit_path(@unit)
+  %fieldset
+    %legend Exercises
+    %ol
+      - @unit.exercises.each do |exercise|
+        %li{ :value => exercise.number }= exercise.description
+

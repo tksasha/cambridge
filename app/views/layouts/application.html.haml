@@ -1,0 +1,11 @@
+!!! Strict
+%html
+  %head
+    %title 
+      Cambridge
+      = RAILS_ENV
+    = stylesheet_link_tag 'stylesheet'
+    = javascript_include_tag 'jquery.js'
+  %body
+    #errors
+    = yield
