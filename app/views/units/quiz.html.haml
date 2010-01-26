@@ -33,7 +33,9 @@
 
       if(text) {
         $.ajax({
-          url: '/answers/' + id + '/check/' + text,
+          type: 'PUT',
+          url: '/answers/' + id + '/check/',
+          data: { text: text, _method: 'put' },
           dataType: 'json',
           success: function() {
             $(self).attr('class', 'wright')
