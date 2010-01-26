@@ -10,8 +10,8 @@ legend{ padding: 2px 10px }
 
 .right { text-align: right }
 
-.good { border: 2px solid green }
-.bad { border: 2px solid red }
+.wright { border: 2px solid green }
+.wrong { border: 2px solid red }
 
 legend { font-weight: normal }
 
