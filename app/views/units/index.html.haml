@@ -3,4 +3,11 @@
     Units
     = link_to 'Create unit', new_unit_path
   %ol#units
-    = render :partial => 'units'
+    - for unit in @units
+      %li{ :value => unit.number }
+        = unit.name
+        .buttons
+          [
+          = link_to 'quiz', quiz_unit_path(unit)
+          = link_to 'edit', edit_unit_url(unit)
+          ]
