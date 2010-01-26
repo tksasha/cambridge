@@ -1,0 +1,12 @@
+%fieldset.unit
+  %legend= h @unit.name
+  - @unit.exercises.each do |exercise|
+    .exercise
+      :textile
+        #{exercise.description}
+      %ol
+        - exercise.sentences.each do |sentence|
+          %li{ :value => sentence.number }
+            :textile
+              #{sentence.text}
+            %input{ :id => 'answer_text' }
