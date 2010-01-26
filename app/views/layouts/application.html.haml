@@ -5,7 +5,9 @@
       Cambridge
       = RAILS_ENV
     = stylesheet_link_tag 'stylesheet'
-    = javascript_include_tag 'jquery.js'
+    = javascript_include_tag :defaults 
   %body
+    %p= link_to 'Units', units_path
+
     #errors
     = yield
