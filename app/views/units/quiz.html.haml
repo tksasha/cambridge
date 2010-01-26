@@ -9,4 +9,38 @@
           %li{ :value => sentence.number }
             :textile
               #{sentence.text}
-            %input{ :id => 'answer_text' }
+            %input{ :id => "answer-#{sentence.id}-#{sentence.answer.id}", :type => :text, :name => 'answer[name]', :size => 50 }
+
+:javascript
+  parseId = function(string) {
+    var array = /answer-\d+-(\d+)/.exec(string)
+
+    if(array && array[1]) {
+      return array[1]
+    } else {
+      return undefined
+    }
+  }
+
+  $(document).ready(function() {
+    $('input[id^="answer-"]').change(function() {
+      var self = $(this);
+      var id = parseId(self.attr('id'));
+      var text = self.val();
+
+      if(text) {
+        $.ajax({
+          url: '/answers/' + id + '/check/' + text,
+          dataType: 'json',
+          success: function() {
+            $(self).attr('class', 'wright')
+          },
+          error: function() {
+            self.attr('class', 'wrong')
+          }
+        });
+      }
+
+      return false;
+    })
+  })
